@@ -1,0 +1,72 @@
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:coffee_ui/view/homepage/home_page.dart';
+import 'package:flutter/material.dart';
+
+class BottomNavBar extends StatefulWidget {
+  const BottomNavBar({super.key});
+  static const String routeName = '/home';
+
+  @override
+  _BottomNavBarState createState() => _BottomNavBarState();
+}
+
+class _BottomNavBarState extends State<BottomNavBar> {
+  int _selectedIndex = 0;
+
+  static const List<Widget> _widgetOptions = <Widget>[
+    HomePage(),
+    Text('Receipt Page'),
+    Text('Cart Page'),
+    Text('Profile Page'),
+  ];
+
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: _widgetOptions.elementAt(_selectedIndex),
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        items: <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Opacity(
+              opacity: _selectedIndex == 0 ? 1 : 0.5,
+              child: SvgPicture.asset('assets/images/home.svg'),
+            ),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Opacity(
+              opacity: _selectedIndex == 1 ? 1 : 0.5,
+              child: SvgPicture.asset('assets/images/receipt.svg'),
+            ),
+            label: 'Receipt',
+          ),
+          BottomNavigationBarItem(
+            icon: Opacity(
+              opacity: _selectedIndex == 2 ? 1 : 0.5,
+              child: SvgPicture.asset('assets/images/cart.svg'),
+            ),
+            label: 'Cart',
+          ),
+          BottomNavigationBarItem(
+            icon: Opacity(
+              opacity: _selectedIndex == 3 ? 1 : 0.5,
+              child: SvgPicture.asset('assets/images/profile.svg'),
+            ),
+            label: 'Profile',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
+      ),
+    );
+  }
+}
