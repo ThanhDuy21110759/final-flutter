@@ -1,6 +1,9 @@
+import 'package:coffee_ui/view/profile/profile_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:coffee_ui/view/homepage/home_page.dart';
 import 'package:flutter/material.dart';
+
+import 'cart/cart_page.dart';
 
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
@@ -16,8 +19,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
   static const List<Widget> _widgetOptions = <Widget>[
     HomePage(),
     Text('Receipt Page'),
-    Text('Cart Page'),
-    Text('Profile Page'),
+    Cart(),
+    Profile(),
   ];
 
   void _onItemTapped(int index) {

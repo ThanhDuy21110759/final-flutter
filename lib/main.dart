@@ -1,6 +1,6 @@
 import 'package:coffee_ui/routes.dart';
 import 'package:coffee_ui/view/bottom_nav_bar.dart';
-import 'package:coffee_ui/view/cart/order_page.dart';
+import 'package:coffee_ui/view/forgot_password.dart';
 import 'package:coffee_ui/view/homepage/home_page.dart';
 import 'package:coffee_ui/view/login_screen.dart';
 import 'package:coffee_ui/view/sign_in.dart';

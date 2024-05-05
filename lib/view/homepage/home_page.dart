@@ -1,9 +1,9 @@
-import 'package:coffee_ui/view/cart/order_page.dart';
 import 'package:coffee_ui/view/homepage/product_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../entity/product.dart';
+import '../order_detail/order_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
         actions: [
           IconButton(
             icon: SvgPicture.asset('assets/images/search.svg'),
-            onPressed: () { 
+            onPressed: () {
               print("Search button pressed");
             },
           ),
@@ -54,7 +54,14 @@ class _HomePageState extends State<HomePage> {
               itemBuilder: (context, index) => ProductList(
                 product: products[index],
                 onPress: () {
-                  Navigator.pushNamed(context, OrderPage.routeName);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => OrderPage(
+                        product: products[index],
+                      ),
+                    ),
+                  );
                 },
               ),
             ),

@@ -1,3 +1,4 @@
+import 'package:coffee_ui/view/forgot_password.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
@@ -141,7 +142,7 @@ class _SignInState extends State<SignIn> {
                                     children: [
                                       GestureDetector(
                                         onTap: () {
-                                          print("Forgot password");
+                                          Navigator.pushNamed(context, ForgotPassword.routeName);
                                         },
                                         child: const Text(
                                           "Forgot password?",
