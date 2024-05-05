@@ -1,4 +1,5 @@
 import 'package:coffee_ui/view/profile/profile_page.dart';
+import 'package:coffee_ui/view/receipt/receipt_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:coffee_ui/view/homepage/home_page.dart';
 import 'package:flutter/material.dart';
@@ -18,7 +19,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   static const List<Widget> _widgetOptions = <Widget>[
     HomePage(),
-    Text('Receipt Page'),
+    Receipt(),
     Cart(),
     Profile(),
   ];

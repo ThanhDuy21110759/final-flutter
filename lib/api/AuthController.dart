@@ -53,7 +53,6 @@ class AuthAPI{
 
     if (response.statusCode == 200) {
       StaffResponse staffResponse = StaffResponse.fromJson(jsonResponse);
-      print("This is staff's info");
       return staffResponse;
     } else if (jsonResponse['code'] == ErrorCode.USER_NOTFOUND.code) {
       throw ApiException(ErrorCode.USER_NOTFOUND.message);

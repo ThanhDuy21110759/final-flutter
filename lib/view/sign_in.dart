@@ -26,7 +26,7 @@ class _SignInState extends State<SignIn> {
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight),
           child: Container(
-            color: Colors.brown, // Set the color to brown
+            color: Colors.brown,
             child: AppBar(
               backgroundColor: Colors.transparent,
               elevation: 0,
