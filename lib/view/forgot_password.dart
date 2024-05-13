@@ -1,25 +1,14 @@
-import 'package:coffee_ui/api/AuthController.dart';
-import 'package:coffee_ui/view/forgot_password.dart';
 import 'package:flutter/material.dart';
 
-class SignIn extends StatefulWidget {
-  const SignIn({super.key});
+class ForgotPassword extends StatefulWidget {
+  const ForgotPassword({super.key});
 
-  static const String routeName = '/sign_in';
+  static const String routeName = '/forgot_password';
   @override
-  _SignInState createState() => _SignInState();
+  _ForgotState createState() => _ForgotState();
 }
 
-class _SignInState extends State<SignIn> {
-  bool _obscureText = true;
-  final _emailController = TextEditingController();
-  final _passwordController = TextEditingController();
-
-  void _togglePasswordVisibility() {
-    setState(() {
-      _obscureText = !_obscureText;
-    });
-  }
+class _ForgotState extends State<ForgotPassword> {
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +18,7 @@ class _SignInState extends State<SignIn> {
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(kToolbarHeight),
           child: Container(
-            color: Colors.brown,
+            color: Colors.brown, // Set the color to brown
             child: AppBar(
               backgroundColor: Colors.transparent,
               elevation: 0,
@@ -57,7 +46,7 @@ class _SignInState extends State<SignIn> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            'Sign In',
+                            'Password Recovery',
                             style: TextStyle(
                               color: Colors.white,
                               fontSize: 30,
@@ -86,26 +75,36 @@ class _SignInState extends State<SignIn> {
                           fit: BoxFit.cover,
                         ),
                       ),
-                      // Add the content here
                       child: Column(
                         children: [
                           const SizedBox(height: 20),
-                          const Text(
-                            'Welcome Back!',
-                            style: TextStyle(
-                              color: Colors.brown,
-                              fontSize: 25,
-                              fontWeight: FontWeight.bold,
+                          const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 35.0),
+                            child: Align(
+                              alignment: Alignment.topLeft,
+                              child: Column(
+                                children:[
+                                  Text(
+                                    'Forgot Password?',
+                                    style: TextStyle(
+                                      color: Colors.brown,
+                                      fontSize: 25,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Text(
+                                    'Enter your email to recovery.',
+                                    style: TextStyle(
+                                      color: Colors.brown,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                ]
+
+                              ),
                             ),
                           ),
-                          const Text(
-                            'Hello there, login to your account.',
-                            style: TextStyle(
-                              color: Colors.brown,
-                              fontSize: 15,
-                            ),
-                          ),
-                          const SizedBox(height: 20),
+                          const SizedBox(height: 30),
                           Container(
                             margin: const EdgeInsets.symmetric(horizontal: 16.0),
                             padding: const EdgeInsets.all(16.0),
@@ -115,89 +114,29 @@ class _SignInState extends State<SignIn> {
                             ),
                             child: Column(
                               children: [
-                                TextField(
-                                  controller: _emailController,
+                                const TextField(
                                   decoration: InputDecoration(
-                                    hintText: 'Username',
+                                    hintText: 'Email',
                                     border: OutlineInputBorder(),
-                                  ),
-                                ),
-                                const SizedBox(height: 20),
-                                TextField(
-                                  controller: _passwordController,
-                                  obscureText: _obscureText,
-                                  decoration: InputDecoration(
-                                    hintText: 'Password',
-                                    border: OutlineInputBorder(),
-                                    suffixIcon: IconButton(
-                                      icon: Icon(
-                                        _obscureText ? Icons.visibility : Icons.visibility_off,
-                                      ),
-                                      onPressed: _togglePasswordVisibility,
-                                    ),
                                   ),
                                 ),
                                 const SizedBox(height: 10),
-                                Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 10.0,
-                                  ),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      GestureDetector(
-                                        onTap: () {
-                                          Navigator.pushNamed(context, ForgotPassword.routeName);
-                                        },
-                                        child: const Text(
-                                          "Forgot password?",
-                                          style: TextStyle(
-                                            fontSize: 15,
-                                            color: Colors.brown,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                const SizedBox(height: 20),
                                 TextButton(
-                                  onPressed: () async {
-                                    try {
-                                      bool success = await AuthAPI.login(
-                                        _emailController.text,
-                                        _passwordController.text,
-                                      );
-                                      if (success) {
-                                        Navigator.pushNamed(context, '/home');
-                                      } else {
-                                        ScaffoldMessenger.of(context).showSnackBar(
-                                          const SnackBar(
-                                            content: Text('Failed to login'),
-                                          ),
-                                        );
-                                      }
-                                    } catch (e) {
-                                      ScaffoldMessenger.of(context).showSnackBar(
-                                        SnackBar(
-                                          content: Text(e.toString()),
-                                        ),
-                                      );
-                                    }
+                                  onPressed: () {
+                                    print("Forgot Password Button Pressed");
                                   },
                                   style: TextButton.styleFrom(
                                     backgroundColor: Colors.brown,
                                     padding: const EdgeInsets.symmetric(
-                                      horizontal: 130,
-                                      vertical: 12,
+                                      horizontal: 80,
+                                      vertical: 10,
                                     ),
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(10),
                                     ),
                                   ),
                                   child: const Text(
-                                    "Sign In",
+                                    "Forgot Password",
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 19,

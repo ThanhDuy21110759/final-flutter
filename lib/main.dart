@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         fontFamily: "Sen-Regular",
       ),
       routes: routes,
-      home: BottomNavBar(key: key),
+      home: Login(key: key),
       debugShowCheckedModeBanner: false,
       debugShowMaterialGrid: false,
     );

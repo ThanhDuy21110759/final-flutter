@@ -7,6 +7,6 @@ import 'package:flutter/cupertino.dart';
 final Map<String, WidgetBuilder> routes = {
   Login.routeName: (context) => const Login(),
   SignIn.routeName: (context) => const SignIn(),
-  BottomNavBar.routeName: (context) => const BottomNavBar(),
+  BottomNavBar.routeName: (context) => const BottomNavBar(initialIndex: 0,),
   ForgotPassword.routeName: (context) => const ForgotPassword(),
 };

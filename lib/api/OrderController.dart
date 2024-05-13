@@ -9,8 +9,7 @@ import '../entity/api_exception.dart';
 
 class OrderAPI{
   static Future<CartResponse> getCart() async {
-    // String? token = await AuthAPI.getToken();
-    String token = 'eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJjYWZlLmNvbSIsInN1YiI6Im1hbmFnZXIxMjMiLCJleHAiOjE3MTQ5MzU0MzcsImlhdCI6MTcxNDkzMTgzNywic2NvcGUiOiJNQU5BR0VSIn0.6t7zCC1fZzn9LBXJAUzGDho6OtMUhJObTTCmg25xxQBx16HcNutt-HjHjOrVzYEfEy1NGLNU5XAteLynmvzcyg';
+    String? token = await AuthAPI.getToken();
     var url = URLs().CART;
 
     var response = await http.get(
@@ -48,6 +47,7 @@ class OrderAPI{
 
     if (response.statusCode == 200) {
       CartResponse cartResponse = CartResponse.fromJson(jsonResponse);
+      print("Place order success");
       return cartResponse;
     } else if (jsonResponse['code'] == 1009) {
       throw AuthException(jsonResponse['message']);

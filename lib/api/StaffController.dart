@@ -9,8 +9,7 @@ import 'AuthController.dart';
 
 class StaffAPI{
   static Future<StaffResponse> getInfo() async {
-    // String? token = await AuthAPI.getToken();
-    String token = 'eyJhbGciOiJIUzUxMiJ9.eyJpc3MiOiJjYWZlLmNvbSIsInN1YiI6Im1hbmFnZXIxMjMiLCJleHAiOjE3MTQ5MzU0MzcsImlhdCI6MTcxNDkzMTgzNywic2NvcGUiOiJNQU5BR0VSIn0.6t7zCC1fZzn9LBXJAUzGDho6OtMUhJObTTCmg25xxQBx16HcNutt-HjHjOrVzYEfEy1NGLNU5XAteLynmvzcyg';
+    String? token = await AuthAPI.getToken();
     var url = URLs().PERSONAL;
 
     var response = await http.get(

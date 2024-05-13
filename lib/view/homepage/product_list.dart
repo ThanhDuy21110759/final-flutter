@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import '../../entity/product.dart';
+
+import '../../entity/response/ProductResponse.dart';
 
 class ProductList extends StatelessWidget {
   final Product product;
@@ -22,7 +23,7 @@ class ProductList extends StatelessWidget {
           children: [
             SizedBox(
               width: 60,
-              child: SvgPicture.asset(product.image),
+              child: SvgPicture.asset("assets/images/espresso.svg"),
             ),
             const SizedBox(
               width: 20,
@@ -31,7 +32,7 @@ class ProductList extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  product.name,
+                  product!.name ?? '',
                   style: const TextStyle(
                     color: Colors.brown,
                     fontSize: 20,
@@ -39,7 +40,7 @@ class ProductList extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'This is description of ${product.name}',
+                  'This is description of ${product.name ?? ''}',
                 ),
               ],
             ),

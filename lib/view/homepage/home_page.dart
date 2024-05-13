@@ -1,8 +1,10 @@
+import 'package:coffee_ui/service/product_service.dart';
 import 'package:coffee_ui/view/homepage/product_list.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../entity/product.dart';
+import '../../entity/response/ProductResponse.dart';
 import '../order_detail/order_page.dart';
 
 class HomePage extends StatefulWidget {
@@ -47,21 +49,34 @@ class _HomePageState extends State<HomePage> {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            ListView.builder(
-              shrinkWrap: true,
-              physics: ScrollPhysics(),
-              itemCount: products.length,
-              itemBuilder: (context, index) => ProductList(
-                product: products[index],
-                onPress: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => OrderPage(
-                        product: products[index],
+            Expanded(
+              child: StreamBuilder<List<Product>>(
+                stream: ProductService().getProducts(),
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return Center(child: CircularProgressIndicator());
+                  } else if (snapshot.hasError) {
+                    return Text('Error: ${snapshot.error}');
+                  } else if (snapshot.hasData) {
+                    return ListView.builder(
+                      itemCount: snapshot.data!.length,
+                      itemBuilder: (context, index) => ProductList(
+                        product: snapshot.data![index],
+                        onPress: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => OrderPage(
+                                product: snapshot.data![index],
+                              ),
+                            ),
+                          );
+                        },
                       ),
-                    ),
-                  );
+                    );
+                  } else {
+                    return Center(child: CircularProgressIndicator());
+                  }
                 },
               ),
             ),

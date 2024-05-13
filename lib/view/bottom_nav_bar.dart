@@ -7,7 +7,8 @@ import 'package:flutter/material.dart';
 import 'cart/cart_page.dart';
 
 class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({super.key});
+  final int initialIndex;
+  const BottomNavBar({super.key, required this.initialIndex});
   static const String routeName = '/home';
 
   @override
@@ -15,7 +16,13 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  int _selectedIndex = 0;
+  late int _selectedIndex;
+
+  @override
+  void initState() {
+    super.initState();
+    _selectedIndex = widget.initialIndex;
+  }
 
   static const List<Widget> _widgetOptions = <Widget>[
     HomePage(),

@@ -1,7 +1,7 @@
 
 class URLs{
-  final Uri LOGIN = Uri.parse("http://192.168.1.9:8080/auth/login");
-  final Uri FORGOT_PASSWORD = Uri.parse("http://192.168.1.9:8080");
+  final Uri LOGIN = Uri.parse("http://192.168.1.5:8080/auth/login");
+  final Uri FORGOT_PASSWORD = Uri.parse("http://192.168.1.5:8080");
 
   //order 1 item {from Homepage}
   final Uri HOME_PAGE = Uri.parse("http://192.168.1.5:8080/product");
@@ -25,4 +25,10 @@ class URLs{
 
   //customer
   final Uri CUSTOMERS = Uri.parse("http://192.168.1.5:8080/customer");
+
+  //product
+  final Uri PRODUCTS = Uri.parse("http://192.168.1.5:8080/product");
+
+  //condiment
+  final Uri CONDIMENTS = Uri.parse("http://192.168.1.5:8080/condiment");
 }

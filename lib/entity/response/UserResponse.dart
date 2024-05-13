@@ -1,13 +1,13 @@
-class StaffResponse {
+class UserResponse {
   int? code;
-  Staff? result;
+  User? result;
 
-  StaffResponse({this.code, this.result});
+  UserResponse({this.code, this.result});
 
-  StaffResponse.fromJson(Map<String, dynamic> json) {
+  UserResponse.fromJson(Map<String, dynamic> json) {
     code = json['code'];
     result =
-    json['result'] != null ? Staff.fromJson(json['result']) : null;
+    json['result'] != null ? User.fromJson(json['result']) : null;
   }
 
   Map<String, dynamic> toJson() {
@@ -20,7 +20,7 @@ class StaffResponse {
   }
 }
 
-class Staff {
+class User {
   int? id;
   String? firstName;
   String? lastName;
@@ -32,7 +32,7 @@ class Staff {
   String? password;
   String? username;
 
-  Staff(
+  User(
       {this.id,
         this.firstName,
         this.lastName,
@@ -44,7 +44,7 @@ class Staff {
         this.password,
         this.username});
 
-  Staff.fromJson(Map<String, dynamic> json) {
+  User.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     firstName = json['firstName'];
     lastName = json['lastName'];
@@ -58,17 +58,19 @@ class Staff {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['firstName'] = this.firstName;
-    data['lastName'] = this.lastName;
-    data['gender'] = this.gender;
-    data['role'] = this.role;
-    data['address'] = this.address;
-    data['phoneNumber'] = this.phoneNumber;
-    data['email'] = this.email;
-    data['password'] = this.password;
-    data['username'] = this.username;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['id'] = id;
+    data['firstName'] = firstName;
+    data['lastName'] = lastName;
+    data['gender'] = gender;
+    data['role'] = role;
+    data['address'] = address;
+    data['phoneNumber'] = phoneNumber;
+    data['email'] = email;
+    data['password'] = password;
+    data['username'] = username;
     return data;
   }
 }
+
+
