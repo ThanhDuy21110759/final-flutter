@@ -166,6 +166,7 @@ class _SignInState extends State<SignIn> {
                                   onPressed: () async {
                                     try {
                                       bool success = await AuthAPI.login(
+                                        context,
                                         _emailController.text,
                                         _passwordController.text,
                                       );
@@ -189,7 +190,7 @@ class _SignInState extends State<SignIn> {
                                   style: TextButton.styleFrom(
                                     backgroundColor: Colors.brown,
                                     padding: const EdgeInsets.symmetric(
-                                      horizontal: 130,
+                                      horizontal: 110,
                                       vertical: 12,
                                     ),
                                     shape: RoundedRectangleBorder(

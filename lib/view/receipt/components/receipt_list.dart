@@ -6,7 +6,8 @@ import '../../../entity/response/ReceiptResponse.dart';
 
 class ReceiptItem extends StatelessWidget {
   final Result result;
-  const ReceiptItem({super.key, required this.result});
+  final int index;
+  const ReceiptItem({super.key, required this.result, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +20,7 @@ class ReceiptItem extends StatelessWidget {
             MaterialPageRoute(
               builder: (context) => ReceiptDetailPage(
                 receipt: result,
+                index: index,
               ),
             ),
           );
@@ -41,13 +43,12 @@ class ReceiptItem extends StatelessWidget {
                       margin: const EdgeInsets.only(left: 10),
                       padding: const EdgeInsets.all(5),
                       decoration: BoxDecoration(
-                        color: Colors.yellow[800],
-                        // color: Colors.green,
+                        color: result.receiptStatus == 'PROGRESS' ? Colors.yellow[800] : Colors.green,
                         borderRadius: BorderRadius.circular(5),
                       ),
-                      child: const Text(
-                        'PROGRESS',
-                        style: TextStyle(
+                      child: Text(
+                        '${result.receiptStatus}',
+                        style: const TextStyle(
                           color: Colors.black,
                           fontSize: 12,
                           fontWeight: FontWeight.bold,

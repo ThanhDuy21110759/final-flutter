@@ -77,4 +77,20 @@ class OrderAPI{
       throw ApiException('Failed to delete order');
     }
   }
+
+  static Future<double> getCost() async{
+    String? token = await AuthAPI.getToken();
+    var url = URLs().TOTAL_CART;
+
+    var response = await http.get(
+      url,
+      headers: {"Authorization": "Bearer $token"},
+    );
+    var jsonResponse = jsonDecode(response.body);
+    if (response.statusCode == 200){
+      return jsonResponse['result'];
+    } else {
+      throw ApiException('Failed to get cart\'s cost');
+    }
+  }
 }

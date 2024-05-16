@@ -51,7 +51,10 @@ class _ReceiptState extends State<Receipt> {
               return ListView.builder(
                 itemCount: snapshot.data!.length,
                 itemBuilder: (context, index) {
-                  return ReceiptItem(result: snapshot.data![index]);
+                  return ReceiptItem(
+                      result: snapshot.data![index],
+                      index: index + 1,
+                  );
                 },
               );
             } else {

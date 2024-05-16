@@ -1,19 +1,23 @@
-import 'package:coffee_ui/entity/response/CustomerResponse.dart';
-
+import 'dart:async';
 import '../api/CustomerController.dart';
+import '../entity/response/CustomerResponse.dart';
 
-class CustomerService {
-  CustomerResponse? customerResponse;
+class CustomerService{
+  final _controller = StreamController<CustomerResponse>();
 
-  CustomerService._privateConstructor();
+  Stream<CustomerResponse> getCustomerById(int id) {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      CustomerAPI.getCustomers(id).then((customerResponse) {
+        _controller.sink.add(customerResponse);
+      }).catchError((error) {
+        _controller.sink.addError(error);
+      });
+    });
 
-  static final CustomerService _instance = CustomerService._privateConstructor();
-
-  static CustomerService get instance {
-    return _instance;
+    return _controller.stream;
   }
 
-  Future<void> getCustomerById(int id) async {
-    customerResponse = await CustomerAPI.getCustomers(id);
+  void dispose() {
+    _controller.close();
   }
 }

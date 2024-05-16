@@ -24,4 +24,19 @@ class ReceiptAPI {
       throw ApiException('Failed to load receipts');
     }
   }
+  static Future<void> updateReceiptStatus(int index) async{
+    String? token = await AuthAPI.getToken();
+    var url = Uri.parse("${URLs().RECEIPTS}/$index/status");
+
+    var response = await http.put(
+      url,
+      headers: {"Authorization": "Bearer $token"},
+    );
+
+    if (response.statusCode != 200) {
+      throw ApiException('Failed to update receipt status');
+    } else {
+      throw ApiException('Update receipt status successfully');
+    }
+  }
 }

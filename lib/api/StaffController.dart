@@ -28,24 +28,36 @@ class StaffAPI{
     }
   }
 
-  static Future<StaffResponse> updateInfo() async {
+  static Future<void> updateInfo(String fstName, String lstName, String address, String phone, String email) async {
+
+    Map <String, dynamic> myJson = {
+        "firstName": fstName,
+        "lastName": lstName,
+        "address": address,
+        "phoneNumber": phone,
+        "email": email
+    };
+
     String? token = await AuthAPI.getToken();
     var url = URLs().UPDATE_PERSONAL;
+    var body = jsonEncode(myJson);
 
-    var response = await http.post(
+    var response = await http.put(
       url,
-      headers: {"Authorization": "Bearer $token"},
+      body: body,
+      headers: {
+        "Authorization": "Bearer $token",
+        "Content-Type": "application/json"
+      },
     );
     var jsonResponse = jsonDecode(response.body);
 
     if (response.statusCode == 200) {
-      //processing the response
-      StaffResponse staffResponse = StaffResponse.fromJson(jsonResponse);
-      return staffResponse;
+      throw ApiException("Update successfully!!");
     } else if (jsonResponse['code'] == 1002){
       throw ApiException(jsonResponse['message']);
     } else {
-      throw ApiException('Failed to load staff info');
+      throw ApiException('Failed to update staff info');
     }
   }
 }

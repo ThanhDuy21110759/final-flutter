@@ -32,7 +32,8 @@ class ProductContainer extends StatelessWidget {
             margin: EdgeInsets.only(top: 100),
             height: 160,
             width: 180,
-            child: SvgPicture.asset("assets/images/espresso.svg"),
+            child: Image.network('${product.image}'),
+            // child: SvgPicture.asset('assets/images/latte.svg'),
           ),
         ),
         Padding(
@@ -52,7 +53,7 @@ class ProductContainer extends StatelessWidget {
                   textAlign: TextAlign.center,
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 width: 50,
               )
             ],

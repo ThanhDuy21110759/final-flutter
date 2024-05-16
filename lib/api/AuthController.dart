@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
@@ -8,7 +10,8 @@ import '../entity/response/StaffResponse.dart';
 import '../entity/api_exception.dart';
 
 class AuthAPI{
-  static Future<bool> login(String email, String password) async {
+
+  static Future<bool> login(BuildContext context, String email, String password) async {
     Map<String, dynamic> myJson = {
       "username": email,
       "password": password

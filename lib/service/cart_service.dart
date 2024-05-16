@@ -8,6 +8,7 @@ import '../api/OrderController.dart';
 class CartService {
   //list contains all the cart responses
   final _controller = StreamController<List<Result>>();
+  final _costController = StreamController<double>();
 
   Stream<List<Result>> getCartItems() {
     Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -61,5 +62,17 @@ class CartService {
     } catch (e) {
       print("Error: $e");
     }
+  }
+
+  Stream<double> getCostStream() {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      OrderAPI.getCost().then((cost) {
+        _costController.sink.add(cost);
+      }).catchError((error) {
+        _costController.sink.addError(error);
+      });
+    });
+
+    return _costController.stream;
   }
 }

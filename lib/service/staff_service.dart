@@ -1,18 +1,23 @@
+import 'dart:async';
 import '../api/StaffController.dart';
 import '../entity/response/StaffResponse.dart';
 
 class StaffService{
-  StaffResponse? staffResponse;
+  final _controller = StreamController<StaffResponse>();
 
-  StaffService._privateConstructor();
+  Stream<StaffResponse> getStaffInfo() {
+    Timer.periodic(const Duration(seconds: 1), (timer) {
+      StaffAPI.getInfo().then((staffResponse) {
+        _controller.sink.add(staffResponse);
+      }).catchError((error) {
+        _controller.sink.addError(error);
+      });
+    });
 
-  static final StaffService _instance = StaffService._privateConstructor();
-
-  static StaffService get instance {
-    return _instance;
+    return _controller.stream;
   }
 
-  Future<void> getStaffInfo() async {
-    staffResponse = await StaffAPI.getInfo();
+  void dispose() {
+    _controller.close();
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-
 import '../../entity/response/ProductResponse.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ProductList extends StatelessWidget {
   final Product product;
@@ -22,11 +21,13 @@ class ProductList extends StatelessWidget {
         child: Row(
           children: [
             SizedBox(
+              height: 60,
               width: 60,
-              child: SvgPicture.asset("assets/images/espresso.svg"),
+              child: Image.network('${product.image}'),
+              // child: SvgPicture.asset('assets/images/latte.svg'),
             ),
             const SizedBox(
-              width: 20,
+              width: 10,
             ),
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,

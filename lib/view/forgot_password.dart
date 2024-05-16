@@ -128,7 +128,7 @@ class _ForgotState extends State<ForgotPassword> {
                                   style: TextButton.styleFrom(
                                     backgroundColor: Colors.brown,
                                     padding: const EdgeInsets.symmetric(
-                                      horizontal: 80,
+                                      horizontal: 70,
                                       vertical: 10,
                                     ),
                                     shape: RoundedRectangleBorder(

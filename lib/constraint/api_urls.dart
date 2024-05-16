@@ -7,8 +7,9 @@ class URLs{
   final Uri HOME_PAGE = Uri.parse("http://192.168.1.5:8080/product");
   final Uri ORDER_ITEM = Uri.parse("http://192.168.1.5:8080/order");
 
-  //order multiple items {from Cart}
+  //order multiple items {from Cart }
   final Uri CART = Uri.parse("http://192.168.1.5:8080/order");
+  final Uri TOTAL_CART = Uri.parse("http://192.168.1.5:8080/order/cost");
 
   //confirm order {from Cart}
   final Uri PLACE_ORDER = Uri.parse("http://192.168.1.5:8080/order");

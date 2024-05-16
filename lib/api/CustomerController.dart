@@ -20,7 +20,7 @@ class CustomerAPI {
 
     if (response.statusCode == 200) {
 
-      CustomerResponse customerResponse = CustomerResponse.fromJson(jsonDecode(response.body));
+      CustomerResponse customerResponse = CustomerResponse.fromJson(jsonResponse);
       return customerResponse;
     } else if (response.statusCode == 404) {
       throw ApiException("Customer not found");

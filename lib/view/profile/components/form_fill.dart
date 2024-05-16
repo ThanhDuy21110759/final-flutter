@@ -1,6 +1,16 @@
+import 'package:coffee_ui/api/StaffController.dart';
+import 'package:coffee_ui/entity/response/StaffResponse.dart';
 import 'package:flutter/material.dart';
 
-class FormProfile extends StatelessWidget {
+class FormProfile extends StatefulWidget {
+  final StaffResponse? staffInfo;
+  FormProfile({super.key, required this.staffInfo});
+
+  @override
+  _FormProfileState createState() => _FormProfileState();
+}
+class _FormProfileState extends State<FormProfile> {
+
   final TextEditingController fstNameController = TextEditingController();
   final TextEditingController lstNameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
@@ -9,7 +19,17 @@ class FormProfile extends StatelessWidget {
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController confirmPasswordController = TextEditingController();
 
-  FormProfile({super.key});
+  @override
+  void initState() {
+    super.initState();
+    if (widget.staffInfo != null && widget.staffInfo!.result != null) {
+      fstNameController.text = widget.staffInfo!.result!.firstName ?? '';
+      lstNameController.text = widget.staffInfo!.result!.lastName ?? '';
+      emailController.text = widget.staffInfo!.result!.email ?? '';
+      phoneController.text = widget.staffInfo!.result!.phoneNumber ?? '';
+      addressController.text = widget.staffInfo!.result!.address ?? '';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -92,9 +112,35 @@ class FormProfile extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
-                onPressed: (){
-                  print("Update information button pressed");
-                },
+              onPressed: () async {
+                try {
+                  await StaffAPI.updateInfo(
+                      fstNameController.text,
+                      lstNameController.text,
+                      addressController.text,
+                      phoneController.text,
+                      emailController.text
+                  );
+                } catch (e) {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return AlertDialog(
+                        title: const Text('Notice'),
+                        content: Text(e.toString()),
+                        actions: <Widget>[
+                          TextButton(
+                            child: const Text('Close'),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                }
+              },
                 child: const Center(
                   child: Text(
                     'Update',
