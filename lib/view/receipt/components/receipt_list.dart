@@ -6,8 +6,7 @@ import '../../../entity/response/ReceiptResponse.dart';
 
 class ReceiptItem extends StatelessWidget {
   final Result result;
-  final int index;
-  const ReceiptItem({super.key, required this.result, required this.index});
+  const ReceiptItem({super.key, required this.result});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +19,6 @@ class ReceiptItem extends StatelessWidget {
             MaterialPageRoute(
               builder: (context) => ReceiptDetailPage(
                 receipt: result,
-                index: index,
               ),
             ),
           );

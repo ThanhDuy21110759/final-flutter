@@ -1,3 +1,4 @@
+import 'package:coffee_ui/api/ReceiptController.dart';
 import 'package:coffee_ui/service/cart_service.dart';
 import 'package:flutter/material.dart';
 import '../../entity/response/CartResponse.dart';
@@ -44,7 +45,7 @@ class _CartState extends State<Cart> {
                       padding: EdgeInsets.all(8.0),
                       child: Text(
                         'Total Price: $totalCost',
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 20,
                           color: Colors.white,
                         ),
@@ -62,6 +63,7 @@ class _CartState extends State<Cart> {
                 ),
                 floatingActionButton: FloatingActionButton(
                   onPressed: () async {
+                    String phoneNumber = '';
                     showDialog(
                       context: context,
                       builder: (BuildContext context) {
@@ -72,12 +74,16 @@ class _CartState extends State<Cart> {
                             decoration: const InputDecoration(hintText: "Enter phone number"),
                             onChanged: (value) {
                               // Store your value here
+                              phoneNumber = value;
                             },
                           ),
                           actions: <Widget>[
                             TextButton(
                               child: const Text('Confirm'),
                               onPressed: () {
+                                ReceiptAPI.getIndexReceipt().then((value) {
+                                  ReceiptAPI.updateReceiptCustomer(value, phoneNumber);
+                                });
                                 Navigator.of(context).pop();
                               },
                             ),

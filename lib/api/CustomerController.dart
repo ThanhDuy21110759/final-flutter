@@ -7,7 +7,7 @@ import '../constraint/api_urls.dart';
 import 'AuthController.dart';
 
 class CustomerAPI {
-  static Future<CustomerResponse> getCustomers(int id) async {
+  static Future<CustomerResponse?> getCustomers(int id) async {
     String? token = await AuthAPI.getToken();
     var url = Uri.parse("${URLs().CUSTOMERS}/$id");
 

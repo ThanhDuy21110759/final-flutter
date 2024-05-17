@@ -53,7 +53,6 @@ class _ReceiptState extends State<Receipt> {
                 itemBuilder: (context, index) {
                   return ReceiptItem(
                       result: snapshot.data![index],
-                      index: index + 1,
                   );
                 },
               );
