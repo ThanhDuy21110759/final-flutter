@@ -1,3 +1,4 @@
+import 'package:coffee_ui/api/EmailController.dart';
 import 'package:flutter/material.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -9,6 +10,7 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotState extends State<ForgotPassword> {
+  final TextEditingController emailController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -114,16 +116,39 @@ class _ForgotState extends State<ForgotPassword> {
                             ),
                             child: Column(
                               children: [
-                                const TextField(
-                                  decoration: InputDecoration(
+                                TextField(
+                                  controller: emailController,
+                                  decoration: const InputDecoration(
                                     hintText: 'Email',
                                     border: OutlineInputBorder(),
                                   ),
                                 ),
                                 const SizedBox(height: 10),
                                 TextButton(
-                                  onPressed: () {
-                                    print("Forgot Password Button Pressed");
+                                  onPressed: () async {
+                                    try{
+                                      bool success = await EmailAPI.passwordRecovery(emailController.text);
+                                      if (success) {
+                                        ScaffoldMessenger.of(context).showSnackBar(
+                                          const SnackBar(
+                                            content: Text('Password recovery email sent'),
+                                          ),
+                                        );
+                                        Navigator.pop(context);
+                                      } else {
+                                        ScaffoldMessenger.of(context).showSnackBar(
+                                          const SnackBar(
+                                            content: Text('Failed to send email'),
+                                          ),
+                                        );
+                                      }
+                                    } catch(e){
+                                      ScaffoldMessenger.of(context).showSnackBar(
+                                        SnackBar(
+                                          content: Text(e.toString()),
+                                        ),
+                                      );
+                                    }
                                   },
                                   style: TextButton.styleFrom(
                                     backgroundColor: Colors.brown,
