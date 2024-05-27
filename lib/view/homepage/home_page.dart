@@ -60,19 +60,24 @@ class _HomePageState extends State<HomePage> {
                   } else if (snapshot.hasData) {
                     return ListView.builder(
                       itemCount: snapshot.data!.length,
-                      itemBuilder: (context, index) => ProductList(
-                        product: snapshot.data![index],
-                        onPress: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => OrderPage(
-                                product: snapshot.data![index],
-                              ),
-                            ),
+                      itemBuilder: (context, index) {
+                        if (snapshot.data![index].productType != "FOOD"
+                            && snapshot.data![index].productStatus != "OUTSTOCK"){
+                          return ProductList(
+                            product: snapshot.data![index],
+                            onPress: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => OrderPage(
+                                    product: snapshot.data![index],
+                                  ),
+                                ),
+                              );
+                            },
                           );
-                        },
-                      ),
+                        }
+                      }
                     );
                   } else {
                     return Center(child: CircularProgressIndicator());

@@ -117,7 +117,7 @@ class _SignInState extends State<SignIn> {
                               children: [
                                 TextField(
                                   controller: _emailController,
-                                  decoration: InputDecoration(
+                                  decoration: const InputDecoration(
                                     hintText: 'Username',
                                     border: OutlineInputBorder(),
                                   ),
