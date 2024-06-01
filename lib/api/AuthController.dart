@@ -1,3 +1,4 @@
+// Call API to get Data raw (Login, GetInfo, Get Token, Log Out) - Ho Thanh Duy 21110759
 import 'package:flutter/cupertino.dart';
 
 import 'package:http/http.dart' as http;
@@ -11,6 +12,9 @@ import '../entity/api_exception.dart';
 
 class AuthAPI{
 
+  // Call Login API (from BackEnd Java Spring boot) - Ho Thanh Duy 21110795
+  // If success, return true
+  // If failed, throw ApiException
   static Future<bool> login(BuildContext context, String email, String password) async {
     Map<String, dynamic> myJson = {
       "username": email,
@@ -39,6 +43,9 @@ class AuthAPI{
     }
   }
 
+  // Call GetInfo API (from BackEnd Java Spring boot) - Ho Thanh Duy 21110795
+  // If success, return StaffResponse
+  // If failed, throw ApiException
   static Future<StaffResponse> getInfo() async{
     String? token = await getToken();
     if (token == null || token.isEmpty) {
@@ -64,12 +71,17 @@ class AuthAPI{
     }
   }
 
+  // Get Token from SharedPreferences - Ho Thanh Duy 21110795
+  // If success, return token
+  // If failed, return null
   static Future<String?> getToken() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String? token = prefs.getString('token');
     return token;
   }
 
+  // Call Logout API (from BackEnd Java Spring boot) - Ho Thanh Duy 21110795
+  // If success, remove token from SharedPreferences
   static Future<void> logout() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.remove('token');

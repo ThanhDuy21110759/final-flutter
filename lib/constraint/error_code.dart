@@ -1,3 +1,4 @@
+// File: error_code.dart TO DEFINE ERROR CODES with singleton Pattern
 class ErrorCode {
   final int code;
   final String message;

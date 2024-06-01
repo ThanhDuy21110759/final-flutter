@@ -1,3 +1,4 @@
+// This file contains all the constants that we are going to use in our app - Ho Thanh Duy 21110759
 import 'package:flutter/material.dart';
 
 const kPrimaryColor = Colors.black;

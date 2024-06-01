@@ -1,3 +1,4 @@
+// To parse this JSON data, do Receipt object - Ho Thanh Duy 21110759
 class ReceiptResponse {
   int? code;
   List<Result>? result;

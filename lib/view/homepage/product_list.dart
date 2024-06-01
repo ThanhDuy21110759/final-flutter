@@ -1,6 +1,7 @@
+// This file contains the product list widget which is used to display the product list in the home page.
+// Ho Thanh Duy 21110759
 import 'package:flutter/material.dart';
 import '../../entity/response/ProductResponse.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class ProductList extends StatelessWidget {
   final Product product;

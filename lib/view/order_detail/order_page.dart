@@ -1,3 +1,5 @@
+// This file contains the order page which is the page where the user can select the size of the product, the condiments and the amount of the product they want to order.
+// Ho Thanh Duy 21110759
 import 'package:flutter/material.dart';
 import '../../api/CondimentController.dart';
 import '../../contants.dart';

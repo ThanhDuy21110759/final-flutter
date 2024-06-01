@@ -1,3 +1,4 @@
+// To parse this JSON data, do Staff object - Ho Thanh Duy 21110759
 class StaffResponse {
   int? code;
   Staff? result;

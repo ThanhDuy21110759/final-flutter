@@ -1,12 +1,11 @@
+// add_to_cart_button.dart is used to add the product to the cart and navigate to the cart page.
+// Ho Thanh Duy 21110759
 import 'package:coffee_ui/view/bottom_nav_bar.dart';
-import 'package:coffee_ui/view/forgot_password.dart';
-import 'package:coffee_ui/view/homepage/home_page.dart';
 import 'package:flutter/material.dart';
 
 import '../../../contants.dart';
 import '../../../entity/response/ProductResponse.dart';
 import '../../../service/cart_service.dart';
-import '../../cart/cart_page.dart';
 import '../order_page.dart';
 
 class AddToCartButton extends StatelessWidget {

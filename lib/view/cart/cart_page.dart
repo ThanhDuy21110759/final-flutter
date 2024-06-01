@@ -1,3 +1,5 @@
+// This file contains the cart page which displays the items in the cart and the total cost of the items in the cart.
+// Ho Thanh Duy 21110759
 import 'package:coffee_ui/api/ReceiptController.dart';
 import 'package:coffee_ui/service/cart_service.dart';
 import 'package:flutter/material.dart';

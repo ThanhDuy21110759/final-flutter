@@ -1,3 +1,4 @@
+// This file contains the bottom navigation bar that is displayed on the home page of the app - Ho Thanh Duy 21110759
 import 'package:coffee_ui/view/profile/profile_page.dart';
 import 'package:coffee_ui/view/receipt/receipt_page.dart';
 import 'package:flutter_svg/flutter_svg.dart';

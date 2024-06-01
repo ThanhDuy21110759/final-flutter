@@ -1,4 +1,4 @@
-
+// // To parse this JSON data, do Cart object - Ho Thanh Duy 21110759
 class CartResponse {
   int? code;
   List<Result>? result;

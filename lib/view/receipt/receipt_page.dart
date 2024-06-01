@@ -1,3 +1,4 @@
+// This file contains the Receipt page which displays the list of receipts - Ho Thanh Duy 21110759
 import 'dart:async';
 import 'package:coffee_ui/view/homepage/home_page.dart';
 import 'package:flutter/material.dart';

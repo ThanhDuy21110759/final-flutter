@@ -48,6 +48,7 @@ flutter:
     - assets/images/sugar_2.svg
     - assets/images/sugar_3.svg
     - assets/images/user.svg
+    - assets/images/logo.png
   fonts:
     - family: Sen-Bold
       fonts:

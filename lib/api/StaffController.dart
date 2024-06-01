@@ -1,3 +1,4 @@
+// Fetch staff information and update staff information - Ho Thanh Duy 21110759
 import 'dart:convert';
 
 import 'package:coffee_ui/entity/response/StaffResponse.dart';
@@ -8,6 +9,9 @@ import '../entity/api_exception.dart';
 import 'AuthController.dart';
 
 class StaffAPI{
+  // Fetch staff information - Ho Thanh Duy 21110759
+  // Return StaffResponse
+  // Throw ApiException if failed
   static Future<StaffResponse> getInfo() async {
     String? token = await AuthAPI.getToken();
     var url = URLs().PERSONAL;
@@ -28,8 +32,12 @@ class StaffAPI{
     }
   }
 
+  // Update staff information - Ho Thanh Duy 21110759
+  // Return void
+  // Throw ApiException if failed
   static Future<void> updateInfo(String fstName, String lstName, String address, String phone, String email) async {
 
+    // Create a json object
     Map <String, dynamic> myJson = {
         "firstName": fstName,
         "lastName": lstName,
@@ -42,6 +50,7 @@ class StaffAPI{
     var url = URLs().UPDATE_PERSONAL;
     var body = jsonEncode(myJson);
 
+    // Send a put request to update staff information
     var response = await http.put(
       url,
       body: body,

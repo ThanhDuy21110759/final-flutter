@@ -1,3 +1,4 @@
+// Summary: Display a list of receipts with receipt ID, date, total cost, and status. - Ho Thanh Duy 21110759
 import 'package:coffee_ui/view/receipt/components/receipt_detail.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';

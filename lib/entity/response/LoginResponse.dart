@@ -1,3 +1,4 @@
+// To parse this JSON data, do Login - Ho Thanh Duy 21110759
 class LoginResponse{
   int? code;
   Result? result;

@@ -1,3 +1,4 @@
+// Fetch API for Receipts data - Ho Thanh Duy 21110759
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 import 'package:coffee_ui/entity/response/ReceiptResponse.dart';
@@ -6,6 +7,9 @@ import '../entity/api_exception.dart';
 import 'AuthController.dart';
 
 class ReceiptAPI {
+  // Get all receipts from API - Ho Thanh Duy 21110759
+  // Return ReceiptResponse
+  // Throw ApiException if failed
   static Future<ReceiptResponse> getAllReceipts() async {
     String? token = await AuthAPI.getToken();
     var url = URLs().RECEIPTS;

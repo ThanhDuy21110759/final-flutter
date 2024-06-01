@@ -1,3 +1,4 @@
+// To parse this JSON data, do Customer object - Ho Thanh Duy 21110759
 class CustomerResponse {
   int? code;
   String? message;

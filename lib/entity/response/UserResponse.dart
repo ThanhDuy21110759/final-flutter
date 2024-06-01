@@ -1,3 +1,4 @@
+// To parse this JSON data, do User object - Ho Thanh Duy 21110759
 class UserResponse {
   int? code;
   User? result;

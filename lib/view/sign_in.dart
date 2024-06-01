@@ -1,3 +1,4 @@
+// Generate Sign In page with email and password fields to login - Ho Thanh Duy 21110759
 import 'package:coffee_ui/api/AuthController.dart';
 import 'package:coffee_ui/view/forgot_password.dart';
 import 'package:flutter/material.dart';

@@ -1,3 +1,4 @@
+// This file contains the receipt detail page which shows the details of a receipt - Ho Thanh Duy 21110759
 import 'package:coffee_ui/api/ReceiptController.dart';
 import 'package:coffee_ui/service/CustomerService.dart';
 import 'package:coffee_ui/view/receipt/components/receipt_list_item.dart';

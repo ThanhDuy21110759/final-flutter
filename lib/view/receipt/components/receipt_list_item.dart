@@ -1,3 +1,4 @@
+// Fake data for testing Receipt - Ho Thanh Duy 21110759
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import '../../../entity/response/ReceiptResponse.dart';

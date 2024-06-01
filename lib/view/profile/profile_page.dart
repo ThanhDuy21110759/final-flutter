@@ -1,3 +1,4 @@
+// This file contains the profile page of the app - Ho Thanh Duy 21110759
 import 'dart:async';
 
 import 'package:coffee_ui/api/AuthController.dart';
@@ -85,14 +86,21 @@ class _ProfileState extends State<Profile> {
                             ElevatedButton(
                               onPressed: () {
                                 // Add your change password logic here
-                                print('Change password button pressed');
+                                Navigator.pushNamed(context, '/bingAI');
                               },
-                              child: const Text(
-                                'Change Password',
-                                style: TextStyle(
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                              child: const Row(
+                                mainAxisSize: MainAxisSize.min, // Set this
+                                children: [
+                                  Icon(Icons.air), // Choose your icon
+                                  SizedBox(width: 4), // Optional: add space between the icon and the text
+                                  Text(
+                                    'BingAI assistant',
+                                    style: TextStyle(
+                                      fontSize: 13,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],

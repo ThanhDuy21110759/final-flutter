@@ -1,3 +1,4 @@
+// To parse this JSON data, do Order object - Ho Thanh Duy 21110759
 class OrderCreateRequest {
   Product? product;
   int? quantity;

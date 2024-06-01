@@ -1,3 +1,5 @@
+// This file contains the cart item widget which is used to display the cart item in the cart screen.
+// Ho Thanh Duy 21110759
 import 'package:coffee_ui/api/OrderController.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';

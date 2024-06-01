@@ -1,3 +1,4 @@
+// To parse this JSON data, do Product object - Ho Thanh Duy 21110759
 import 'package:coffee_ui/view/order_detail/order_page.dart';
 
 class ProductResponse {

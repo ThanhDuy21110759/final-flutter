@@ -1,3 +1,4 @@
+// This file contains the cart service class which is responsible for handling the cart logic - Ho Thanh Duy 21110759
 import 'dart:async';
 import 'package:coffee_ui/entity/response/CartResponse.dart';
 import 'package:coffee_ui/entity/request/OrderCreateRequest.dart' as Order;
@@ -6,7 +7,7 @@ import 'package:coffee_ui/view/order_detail/order_page.dart';
 import '../api/OrderController.dart';
 
 class CartService {
-  //list contains all the cart responses
+  //list contains all the cart responses - Ho Thanh Duy 21110759
   final _controller = StreamController<List<Result>>();
   final _costController = StreamController<double>();
 
@@ -22,10 +23,12 @@ class CartService {
     return _controller.stream;
   }
 
+  //dispose the stream controller - Ho Thanh Duy 21110759
   void dispose() {
     _controller.close();
   }
 
+  //get index by size - Ho Thanh Duy 21110759
   int getIndexBySize(sizeType size){
     switch(size){
       case sizeType.small:
@@ -37,6 +40,7 @@ class CartService {
     }
   }
 
+  //add product to cart - Ho Thanh Duy 21110759
   Future<void> addProductToCart(int productId,
       int itemCount,
       sizeType selectedSize,
@@ -64,6 +68,7 @@ class CartService {
     }
   }
 
+  //remove product from cart - Ho Thanh Duy 21110759
   Stream<double> getCostStream() {
     Timer.periodic(const Duration(seconds: 1), (timer) {
       OrderAPI.getCost().then((cost) {

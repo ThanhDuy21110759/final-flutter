@@ -1,3 +1,5 @@
+// Fetch the product image and name from the API and display it in the product container
+// Ho Thanh Duy 21110759
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 

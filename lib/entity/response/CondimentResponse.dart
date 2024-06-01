@@ -1,3 +1,4 @@
+// To parse this JSON data, do Condiment object - Ho Thanh Duy 21110759
 class Condiment {
   int? id;
   String? name;

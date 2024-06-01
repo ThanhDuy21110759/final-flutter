@@ -1,3 +1,5 @@
+// Fetching product price and name from the product object and displaying it in the UI.
+// Ho Thanh Duy 21110759
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';

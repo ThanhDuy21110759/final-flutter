@@ -1,3 +1,4 @@
+// Generate Product Service
 import 'dart:async';
 
 import 'package:coffee_ui/entity/response/ProductResponse.dart';
@@ -6,6 +7,7 @@ import '../api/ProductController.dart';
 class ProductService{
   final _controller = StreamController<List<Product>>();
 
+  // Get All Products - Ho Thanh Duy 21110759
   Stream<List<Product>> getProducts() {
     Timer.periodic(const Duration(seconds: 1), (timer) {
       ProductAPI.getAlls().then((productResponse) {
